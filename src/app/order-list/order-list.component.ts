@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatatableComponent } from '@swimlane/ngx-datatable';
-import { orderdata } from '../orderList.mock';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, pipe } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 import { ServicesService } from '../services.service';
+
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
