@@ -1,0 +1,51 @@
+<div class="container-fluid" *ngIf="currentorderDtl">
+    <div class="card">
+        <h5 class="card-header">Order Details</h5>
+        <div class="card-body">
+            <div class="card-title">
+                <h5>Order Number :# {{currentorderDtl.orderNumber}}</h5>
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <div class="card text-white bg-dark" style="    box-shadow: 0 0 3px black;
+                    border-radius: 11px;">
+                        <div class="card-body">
+                            <h4 class="card-title">Name : {{currentorderDtl.name}}</h4>
+                            <hr>
+                            <h6 class="card-text">Address</h6>
+
+                            <h6>{{currentorderDtl.Address}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let ordList of currentorderDtl.order">
+                            <div class="row">
+                                <div class="col align-self-start">
+                                    <span>{{ordList.orderName}}</span>
+                                </div>
+                                <div class="col align-self-end">
+                                <span style="float: right;">{{ordList.amount}}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer border-success">
+            <div class="row">
+                <div class="col-3">
+                    <a [routerLink]="['/orderList']" class="btn btn-primary btn-sm">Back</a>
+                </div>
+                <div class="col" style="font-weight: bold">Total</div>
+                <div class="col">
+                    <span style="float: right;font-weight: bold;margin-right: 20px;">{{getTotal(currentorderDtl.order)}}</span></div>
+            </div>
+
+        </div>
+    </div>
+</div>

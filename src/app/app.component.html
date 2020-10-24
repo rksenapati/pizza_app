@@ -1,0 +1,16 @@
+<div class="spinner" *ngIf="loader">
+  <div class="d-flex justify-content-center text-success">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark fixed-top nav-padding">
+  <a class="navbar-brand">
+    <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    <span style="font-weight:bold;">Pizza at AnyTime</span>
+  </a>
+</nav>
+<div class="routerMagin">
+  <router-outlet></router-outlet>
+</div>
