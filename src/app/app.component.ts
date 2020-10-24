@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { setTheme } from 'ngx-bootstrap/utils';
 import { ServicesService } from './services.service';
 @Component({
   selector: 'app-root',
@@ -13,6 +12,5 @@ export class AppComponent {
     this.service.loader.subscribe(data=>{
       this.loader=data;
     })
-    // setTheme('bs3')
   }
 }
