@@ -23,7 +23,7 @@ export class OrderListComponent implements OnInit {
     return throwError(error);    
   }
   ngOnInit(): void {
-    this.getAllList().subscribe(
+    this.service.getAllList().subscribe(
       data =>{ this.rows = data
         this.temp = [...this.rows];
       console.log(this.rows);
@@ -50,21 +50,21 @@ export class OrderListComponent implements OnInit {
     const findIndex = this.rows.findIndex(val => val.orderNumber == data.orderNumber)
     const statusIndex = this.constStatus.findIndex(sts => sts == this.rows[findIndex].status);
     this.rows[findIndex].status = statusIndex >= 3 ? this.constStatus[3] : this.constStatus[statusIndex + 1]
-    this.updateOrder(this.rows[findIndex]).subscribe(data=>{
+    this.service.updateOrder(this.rows[findIndex]).subscribe(data=>{
       console.log(data);
     })
     setTimeout(() => {
       this.service.loader.next(false);
     }, 500);
   }
-  getAllList(): Observable<[]> {
-    return this.http.get<[]>(this.getUrl)
-  }
-  updateOrder(updateData): Observable<any> {
-    let updateUrl=`${this.getUrl}/${updateData.id}`
-    console.log(updateData);
-    return this.http.put(updateUrl, updateData).pipe(
-      catchError(this.handleError)
-    );;
-  }
+  // getAllList(): Observable<[]> {
+  //   return this.http.get<[]>(this.getUrl)
+  // }
+  // updateOrder(updateData): Observable<any> {
+  //   let updateUrl=`${this.getUrl}/${updateData.id}`
+  //   console.log(updateData);
+  //   return this.http.put(updateUrl, updateData).pipe(
+  //     catchError(this.handleError)
+  //   );;
+  // }
 }
