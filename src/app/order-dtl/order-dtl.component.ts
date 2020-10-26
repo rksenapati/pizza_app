@@ -15,7 +15,6 @@ export class OrderDtlComponent implements OnInit {
   private getUrl = 'api/orderdataList';
   constructor(private route: ActivatedRoute,private http: HttpClient) {
     this.curOrderNumber = this.route.snapshot.paramMap.get('orderNumber');
-    console.log(this.currentorderDtl);
   }
   private handleError(error: any) {
     console.error(error);

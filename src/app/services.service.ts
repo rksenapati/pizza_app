@@ -11,7 +11,6 @@ public loader= new BehaviorSubject(false);
 private getUrl = 'api/orderdataList';
   constructor(private http: HttpClient) { }
   private handleError(error: any) {
-    console.error(error);
     return throwError(error);    
   }
   getAllList(): Observable<[]> {
@@ -19,7 +18,6 @@ private getUrl = 'api/orderdataList';
   }
   updateOrder(updateData): Observable<any> {
     let updateUrl=`${this.getUrl}/${updateData.id}`
-    console.log(updateData);
     return this.http.put(updateUrl, updateData).pipe(
       catchError(this.handleError)
     );;

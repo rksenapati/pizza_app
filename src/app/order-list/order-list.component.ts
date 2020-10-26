@@ -19,14 +19,14 @@ export class OrderListComponent implements OnInit {
   @ViewChild('myTable') table: DatatableComponent;
   constructor(private http: HttpClient,public service:ServicesService) { }
   private handleError(error: any) {
-    console.error(error);
     return throwError(error);    
   }
   ngOnInit(): void {
     this.service.getAllList().subscribe(
-      data =>{ this.rows = data
+      data =>{ 
+        this.rows = data
         this.temp = [...this.rows];
-      console.log(this.rows);
+        console.log(data);
       }
     )
     
@@ -39,7 +39,6 @@ export class OrderListComponent implements OnInit {
         return value;
       }
     });
-    console.log(temp);
     this.rows = temp;
   }
   getLimitValue(event) {
@@ -51,7 +50,6 @@ export class OrderListComponent implements OnInit {
     const statusIndex = this.constStatus.findIndex(sts => sts == this.rows[findIndex].status);
     this.rows[findIndex].status = statusIndex >= 3 ? this.constStatus[3] : this.constStatus[statusIndex + 1]
     this.service.updateOrder(this.rows[findIndex]).subscribe(data=>{
-      console.log(data);
     })
     setTimeout(() => {
       this.service.loader.next(false);

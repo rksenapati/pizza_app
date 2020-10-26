@@ -1,6 +1,10 @@
 <div class="container-fluid" *ngIf="currentorderDtl">
     <div class="card">
-        <h5 class="card-header">Order Details</h5>
+        <div class="row">
+            <h5 class="card-header col">Order Details</h5>
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+        </div>
+        
         <div class="card-body">
             <div class="card-title">
                 <h5>Order Number :# {{currentorderDtl.orderNumber}}</h5>
